@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <title>Receitas Afetivas</title>
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Estilo Personalizado -->
+    <link rel="stylesheet" type="text/css" href="../CSS/estilo.css">
+
+    <script>
+        function valida() {
+            let email = document.getElementById("email").value.trim();
+            let senha = document.getElementById("senha").value.trim();
+            let nome = document.getElementById("nome").value.trim();
+            let cpf = document.getElementById("cpf").value.trim();
+            let endereco = document.getElementById("endereco").value.trim();
+            let complemento = document.getElementById("complemento").value.trim();
+            let cep = document.getElementById("cep").value.trim();
+
+            
+            if (email.length < 3 || email.value == "") {
+                alert("Email incorreto, digite novamente.")
+                email.focus();
+                return;
+            }
+            if (senha.length < 6 || senha.value == "") {
+                alert("Senha inválida, é necessário ao menos 6 caracteres. Tente novamente.")
+                senha.focus();
+                return;
+            }
+            if (nome.length < 3 || nome.value == "") {
+                alert("Volte ao campo nome e digite corretamente.")
+                nome.focus();
+                return;
+            }
+            if (cpf.length < 11 || ncpf.value == "") {
+                alert("Volte ao campo CPF e digite corretamente.")
+                cpf.focus();
+                return;
+            }
+            if (endereco.length < 3 || endereco.value == "") {
+                alert("Endereço inválido, tente novamente.")
+                senha.focus();
+                return;
+            }
+            if (complemento.length < 3 || complemento.value == "") {
+                alert("Complemento inválido, tente novamente.")
+                senha.focus();
+                return;
+            }
+            if (cep.length < 8 || cep.value == "") {
+                alert("CEP inválido, tente novamente.")
+                senha.focus();
+                return;
+            }
+
+            // Se todos os campos passarem, o formulário será enviado
+            alert("Cadastro realizado com sucesso!");
+            document.getElementById("formulario").submit();  // Envia o formulário
+        }
+       
+        //https://devarthur.com/blog/funcao-javascript-para-validar-cpf
+
+                                function validaCPF(cpf) {
+        //declaração das variáveis
+                                var Soma = 0
+                                var Resto
+        //deixando somente números, para excluir as outras possibilidades de caracteres
+                                var strCPF = String(cpf).replace(/[^\d]/g, '')
+        //confirmar que tem ao menos 11 caracteres numéricos                               
+                                if (strCPF.length !== 11)
+                                    return false
+        //descartar a repetição de números                                   
+                                if ([
+                                    '00000000000',
+                                    '11111111111',
+                                    '22222222222',
+                                    '33333333333',
+                                    '44444444444',
+                                    '55555555555',
+                                    '66666666666',
+                                    '77777777777',
+                                    '88888888888',
+                                    '99999999999',
+                                    ].indexOf(strCPF) !== -1)
+                                    return false
+        //ParseInt pra transformar string em int
+                                for (i=1; i<=9; i++)
+                                    Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
+
+                                Resto = (Soma * 10) % 11
+
+                                if ((Resto == 10) || (Resto == 11)) 
+                                    Resto = 0
+
+                                if (Resto != parseInt(strCPF.substring(9, 10)) )
+                                    return false
+
+                                Soma = 0
+
+                                for (i = 1; i <= 10; i++)
+                                    Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i)
+
+                                Resto = (Soma * 10) % 11
+
+                                if ((Resto == 10) || (Resto == 11)) 
+                                    Resto = 0
+
+                                if (Resto != parseInt(strCPF.substring(10, 11) ) )
+                                    return false;
+        //se passou por tudo, é válido e é enviado
+                                return true;
+                                }
+                        function validarCPF(cpf) {
+                          let cpf = document.getElementById("cpf").value;
+
+                            if (!validaCPF(cpf)){
+                            alert ("CPF inválido!");
+                            return false;//impere o envio
+                            }
+                            return true;//permite o envio
+                        }
+
+    </script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="white text-black py-3">
+        <div class="container">
+            <div class="row align-items-center text-center text-md-start">
+                <div class="col-md-2 mb-2 mb-md-0">
+                    <img src="../IMAGES/Logo-ReceitasAfetivas-02.png" width="140" height="100" alt="Logo">
+                </div>
+                <div class="col-md-10">
+                    <h2 class="fs-5 fst-italic"></h2>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-#F47939 bg-#F47939">
+        <div class="container">
+       
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="../HTML/Index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Nossa proposta</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown"
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Receitas
+                        </a>
+                        <ul class="dropdown-menu" style="background-color: #F47939">
+                            <li><a class="dropdown-item text-white" href="../HTML/cafedamanha.html">Café da Manhã</a></li>
+                            <li><a class="dropdown-item text-white" href="../HTML/almoco.html">Almoço</a></li>
+                            <li><a class="dropdown-item text-white" href="../HTML/lanche.html">Lanche</a></li>
+                            <li><a class="dropdown-item text-white" href="../HTML/jantar.html">Jantar</a></li>
+                            <li><a class="dropdown-item text-white" href="../HTML/paraum.html">Receitas para um</a></li>
+                            <li><a class="dropdown-item text-white" href="../HTML/paradois.html">Receitas para dois</a></li>
+                            <li><a class="dropdown-item text-white" href="../HTML/paragrupos.html">Receitas para grupos</a></li>
+                            <li><a class="dropdown-item text-white" href="../HTML/festivas.html">Receitas Festivas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="../HTML/cadastro.HTML">Cadastre-se</a>
+                    </li>                   
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+                    <button class="btn btn-white text-white" type="submit" style="background-color: #F15E66;">Pesquisar</button>
+                </form>
+
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <h1>Cadastro de Usuário</h1>
+        <form id="formulario" onsubmit="validaCPF(cpf)">
+
+        </form>
+        <form class="row g-3" name="form1" on>
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label" style="color: #F15E66;">E-mail:</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="col-md-6">
+              <label for="inputPassword4" class="form-label" style="color: #F15E66;">Senha:</label>
+              <input type="password" class="form-control" id="senha" required>
+            </div>
+            <div class="col-12">
+                <label for="inputNome" class="form-label" style="color: #F15E66;">Nome:</label>
+                <input type="text" class="form-control" id="nome" required>
+            </div>
+            <div class="col-12">
+                <label for="inputCPF" class="form-label" style="color: #F15E66;">CPF:</label>
+                <input type="text" class="form-control" id="cpf" required>
+            </div>
+            <div class="col-12">
+              <label for="inputAddress" class="form-label" style="color: #F15E66;">Endereço:</label>
+              <input type="text" class="form-control" id="endereco" placeholder="Rua Dos Bobos, n0">
+            </div>
+            <div class="col-12">
+              <label for="inputAddress2" class="form-label" style="color: #F15E66;" >Complemento:</label>
+              <input type="text" class="form-control" id="complemento" placeholder="000 - Casa">
+            </div>
+            <div class="col-md-6">
+              <label for="inputCity" class="form-label" style="color: #F15E66;" >Cidade:</label>
+              <input type="text" class="form-control" id="cidade">
+            </div>
+            <div class="col-md-4">
+              <label for="inputState" class="form-label" style="color: #F15E66;">Estado: </label>
+              <select id="estado" class="form-select">
+                <option selected>Escolha o Estado</option>
+                <option>Rio Grande do Sul</option>
+                <option>São Paulo</option>
+                <option>Minas Gerais</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="inputZip" class="form-label" style="color: #F15E66;">CEP:</label>
+              <input type="number" class="form-control" id="cep">
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="termos" required>
+                <label class="form-check-label" for="gridCheck">
+                    <a href="termos.html">Aceito os Termos e Políticas</a>
+                </label>
+              </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-white text-white" style="background-color: #F15E66;" onclick=valida()>Cadastrar</button>                
+            </div>
+          </form>
+          <script>
+            <!-- SCRIPT DO VIA CEP (SEM JQUERY) -->
+            document.getElementById("cep").addEventListener("blur", function() {
+                let cep = this.value.replace(/\D/g, ''); // Remove tudo que não for número
+            
+                if (cep.length !== 8) {
+                    alert("CEP inválido!");
+                    return;
+                }
+            
+                fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.erro) {
+                            alert("CEP não encontrado!");
+                            return;
+                        }
+            
+                        // Preenche os campos automaticamente
+                        document.getElementById("endereco").value = data.logradouro;
+                        document.getElementById("bairro").value = data.bairro;
+                        document.getElementById("cidade").value = data.localidade;
+                        document.getElementById("estado").value = data.uf;
+                    })
+                    .catch(error => {
+                        alert("Erro ao consultar o CEP.");
+                        console.error(error);
+                    });
+            });
+            </script>
+    
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="#F15E66 text-white py-5">
+        <div class="container">
+            <div class="row text-center text-md-start">
+
+                <!-- Links -->
+                <div class="col-md-4 mb-4">
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none fs-5">Receitas</a></li>
+                        <li><a href="#" class="text-white text-decoration-none fs-5">Nossa proposta</a></li>
+                        <li><a href="#" class="text-white text-decoration-none fs-5">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+
+                <!-- Redes Sociais -->
+                <div class="col-md-4 mb-4">
+                    <h4>Siga-nos nas Redes Sociais:</h4>
+                    <a href="https://www.facebook.com"><img src="../IMAGES/face.png" width="25" height="25" alt="Facebook"></a>
+                    <a href="https://www.instagram.com"><img src="../IMAGES/Insta.png" width="25" height="25" alt="Instagram"></a>
+                    <a href="https://www.youtube.com"><img src="../IMAGES/youtube.png" width="35" height="25" alt="YouTube"></a>
+                    <p class="mt-4 mb-0">&copy; Luiza Marinho Matte 2025. Todos os direitos reservados.</p>
+                </div>
+            </div>
+            <div>
+                <img src="../IMAGES/Logo-ReceitasAfetivasHORINZONTALbranco-03.png" width="300" height="210" class="img-fluid">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        
+</body>
+</html>

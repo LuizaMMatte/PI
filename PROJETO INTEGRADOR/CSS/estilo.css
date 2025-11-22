@@ -1,0 +1,67 @@
+/* Reset e boas práticas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+/* Header */
+header {
+    background-color: white;
+}
+
+/* Nav */
+nav {
+    background-color: #F47939;
+    padding: 10px;
+}
+
+/* Main */
+main {
+    background-color: white;
+    padding: 10px;
+    margin: 5%;
+}
+
+/* Footer */
+footer {
+    background-color: #F47939;
+}
+
+footer h4 {
+    font-size: 15px;
+}
+
+footer a {
+    margin-right: 10px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* permite quebrar linha se faltar espaço */
+    gap: 20px; /* espaço entre os cards */
+    justify-content: center; /* centraliza os cards na horizontal */
+    padding: 20px;
+    
+  }
+  
+  .item {
+    display: flex;
+    justify-content: center;
+  }
+  
+h5{
+    font-weight: bold;
+    text-align: center;
+
+}
+
+h1{
+    color: #F47939;
+    text-align: center;
+}

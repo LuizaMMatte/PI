@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DESENVOLVIMENTO DE SISTEMAS</title>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <style>
+        /* Estilos básicos para os elementos */
+        body {
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s; /* Suaviza a mudança de cor do body */
+            min-height: 1600px; /* Para permitir o scroll */
+        }
+        button, p, h1, footer, nav, .bloco {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            text-align: center;
+        }
+        button {
+            background-color: white;
+            transition: background-color 0.3s;
+        }
+        footer, .bloco {
+            min-height: 50px;
+        }
+        .bloco {
+            background-color: lightgray;
+        }
+        #barraNav {
+            position: fixed; /* Fixa a barra para que seja visível ao rolar */
+            width: 98%;
+            top: 0;
+            left: 0;
+            background-color: transparent;
+            z-index: 10;
+        }
+        .conteudo {
+            margin-top: 60px; /* Evita que o conteúdo fique por baixo da nav fixa */
+        }
+    </style>
+    
+    <script>
+    // 2. TODO O CÓDIGO JQUERY DENTRO DE $(document).ready()
+    $(document).ready(function(){
+        
+        // Exercício 1 — Alterar a cor de fundo do Body (click)
+        $("#btnBody").click(function(){
+            $("body").css("background-color","red");
+        });
+
+        // Exercício 2 — Alterar a cor de um botão (hover)
+        $("#btnColor").hover(
+            // Ao passar o mouse (mouseenter)
+            function(){
+                $(this).css("background-color","lightblue");
+            },
+            // Ao remover o mouse (mouseleave)
+            function(){
+                $(this).css("background-color","white");
+            }
+        );
+
+        // Exercício 3 — Alterar cor de um parágrafo (click)
+        $("#paragrafo").click(function(){
+            $(this).css("color","red");
+        });
+
+        // Exercício 4 — Alterar cor de um H1 (click em botão)
+        $("#btnH1").click(function(){
+            $("#titulo").css("color","blue"); // Seleciona o H1 com id="titulo"
+        });
+
+        // Exercício 5 — Alterar cor do FOOTER (dblclick)
+        $("#rodape").dblclick(function(){
+            $(this).css("background-color","purple").css("color","white");
+        });
+
+
+        // Exercício 6 — Alterar cor do NAV (scroll)
+        $(window).scroll(function(){
+            // Se a página for rolada além do topo...
+            if ($(window).scrollTop() > 50) {
+                $("#barraNav").css("background-color","yellow");
+            } else {
+                $("#barraNav").css("background-color","transparent"); // Volta ao normal
+            }
+        });
+
+        // Exercício 7 — Alterar cor do DIV (dblclick)
+        $("#blocoDiv").dblclick(function(){
+            $(this).css("background-color","green").css("color","white");
+        });
+
+    });     </script>
+</head>
+<body>
+
+    <nav id="barraNav">Barra de Navegação</nav>
+
+    <div class="conteudo">
+        <h1 id="titulo">DESENVOLVIMENTO DE SISTEMAS (Exercício 4)</h1>
+        
+        <button id="btnBody">Alterar Fundo do Body (Ex. 1)</button>
+        
+        <button id="btnColor">Hover para Cor (Ex. 2)</button>
+
+        <button id="btnH1">Alterar Cor do Título H1 (Ex. 4)</button>
+        
+        <p id="paragrafo">Parágrafo de exemplo. Clique para mudar a cor do texto para vermelho. (Ex. 3)</p>
+        
+        <div id="blocoDiv" class="bloco">Bloco DIV. Dê um duplo clique para mudar o fundo para verde. (Ex. 7)</div>
+
+        <h2>Role para testar o Exercício 6</h2>
+        <p>Conteúdo para permitir a rolagem da página...</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+        <p>Conteúdo para permitir a rolagem da página...</p>
+    </div>
+
+    <footer id="rodape">Rodapé. Dê um duplo clique para mudar o fundo para roxo. (Ex. 5)</footer>
+
+</body>
+</html>
