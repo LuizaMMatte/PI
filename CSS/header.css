@@ -1,0 +1,186 @@
+/* ESTRUTURA GLOBAL */
+body {
+    padding-top: 120px; /* Ajustado para o tamanho real do seu header fixo */
+}
+
+.custom-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+/* DISTRIBUIÇÃO DO HEADER (3 SEÇÕES) */
+#navbarNav {
+    flex: 1; /* Lado Esquerdo */
+}
+
+.logo-container {
+    flex: 0 0 auto; 
+    text-align: center;
+    padding: 0 20px;
+}
+
+.search-container {
+    flex: 1; /* Lado Direito */
+}
+
+.pesquisar-form {
+    max-width: 300px;
+}
+
+/* --- PADRONIZAÇÃO DO NEGRITO (AQUI ESTÁ A CHAVE) --- */
+
+/* Links de Navegação, "Olá, Nome", e botões de Auth */
+.nav-link, 
+#userDropdown, 
+.auth-section a.btn-link,
+.auth-section .btn-outline-dark {
+    color: #F15E66 !important;
+    font-weight: 800 !important; /* Força o negrito máximo em todas as telas */
+    transition: all 0.3s ease;
+}
+
+/* MENUS DROPDOWN (SUSPENSOS) */
+.dropdown-menu {
+    background-color: #F15E66 !important;
+    border: none !important;
+}
+
+.dropdown-item {
+    color: white !important;
+    padding: 8px 20px;
+    font-weight: 700 !important; /* Negrito dentro do menu */
+}
+
+.dropdown-item:hover {
+    background-color: #F47939 !important; /* Laranja no hover */
+    color: #ffffff !important;
+}
+
+.dropdown-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+/* BOTÃO DE LOGIN / USER (ESTILO OUTLINE) */
+.auth-section .btn-outline-dark {
+    border-color: #F15E66 !important;
+    color: #F15E66 !important;
+    background-color: transparent;
+}
+
+/* Efeito de Hover/Ativo para os botões do Header */
+.auth-section .btn-outline-dark:hover, 
+.auth-section .btn-outline-dark:active, 
+.auth-section .btn-outline-dark:focus,
+.auth-section .show > .btn-outline-dark.dropdown-toggle {
+    background-color: #F15E66 !important;
+    border-color: #F15E66 !important;
+    color: white !important;
+    box-shadow: none !important;
+}
+
+/* AJUSTES PARA CELULAR */
+@media (max-width: 991px) {
+    body { padding-top: 80px; }
+    .custom-header {
+        height: auto;
+        padding: 10px 0;
+    }
+    .search-container {
+        display: none !
+        }
+}
+
+/* Container do Feed da Comunidade */
+.feed-receitas .card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.feed-receitas .card:hover {
+    transform: translateY(-5px); /* Efeito suave no hover */
+}
+
+/* Título Acima da Imagem */
+.feed-receitas .card-header-custom {
+    padding: 15px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.feed-receitas .card-title {
+    font-weight: 800 !important; /* Seu padrão de negrito */
+    color: #333;
+    margin-bottom: 0;
+    font-size: 1.1rem;
+}
+
+/* Imagem Quadrada e Proporcional */
+.feed-receitas .img-wrapper {
+    width: 100%;
+    padding-top: 100%; /* Truque do CSS para manter proporção 1:1 (quadrado) */
+    position: relative;
+    overflow: hidden;
+}
+
+.feed-receitas .card-img-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta a imagem para preencher o quadrado sem distorcer */
+    object-position: center;
+}
+
+/* Botão de Favorito sobre a imagem quadrada */
+.feed-receitas .fav-btn {
+    background: rgba(255,255,255,0.9) !important;
+    border-radius: 50%;
+    border: none;
+    z-index: 10;
+    transition: transform 0.2s;
+}
+
+.feed-receitas .fav-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Corpo do Card (Badge e Autor) */
+.feed-receitas .card-body {
+    padding: 15px;
+    text-align: center;
+}
+
+/*ACESSIBILIDADE*/
+.acessibilidade {
+    position: fixed;
+    right: 10px;
+    top: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 3000;
+}
+
+.acessibilidade button {
+    background-color: #F15E66 !important; /* Seu Coral */
+    color: white !important;
+    border: 2px solid #F15E66 !important; /* Borda na mesma cor */
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: 800 !important; /* Negrito que você gosta */
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.acessibilidade button:hover {
+    background-color: #F47939 !important; /* Laranja no hover */
+    border-color: #F47939 !important;
+}

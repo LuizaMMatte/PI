@@ -1,0 +1,250 @@
+/* Reset e boas práticas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+/* Header */
+header {
+    background-color: white;
+}
+
+/* Main */
+main {
+    background-color: white;
+    padding: 10px;
+    margin: 5%;
+}
+
+/* Footer */
+footer {
+    background-color: #F47939;
+}
+
+footer h4 {
+    font-size: 15px;
+}
+
+footer a {
+    margin-right: 10px;
+}
+
+.container-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 18rem);
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card-quadrado {
+    width: 18rem;
+    height: 18rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-quadrado img {
+    width: 100%;
+    height: 50%;   /* ocupa metade do card */
+    object-fit: cover;
+}
+  
+  .item {
+    display: flex;
+    justify-content: center;
+  }
+  
+h5{
+    font-weight: bold;
+    text-align: center;
+
+}
+
+h1{
+    color: #F47939;
+    text-align: center;
+}
+
+/* Fundo para as legendas (Captions) - Forçando visibilidade */
+.carousel-caption {
+    background: rgba(255, 255, 255, 0.767) !important; /* Aumentei a opacidade para 0.7 */
+    left: 0 !important;   /* Alinha na borda esquerda da imagem */
+    right: 0 !important;  /* Alinha na borda direita da imagem */
+    bottom: 0 !important; /* Cola na base da imagem */
+    width: 100%;          /* Garante 100% de largura */
+    padding: 30px !important; 
+    margin: 0 !important; /* Remove qualquer margem externa */
+    text-align: center;   /* Centraliza o texto no fundo preto */
+}
+
+.carousel-caption h5 {
+    font-weight: 800 !important;
+    color: #F15E66 !important;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.carousel-caption p {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #696969 !important;
+}
+
+ /*RECEITAS FEED*/
+
+/* Ajuste no Main para não esmagar o conteúdo */
+main {
+    background-color: white;
+    padding: 10px;
+    margin: 20px auto; /* Reduzido para não apertar os cards nas laterais */
+    max-width: 1320px;
+}
+
+/* --- FEED DE RECEITAS (ESTILO IMAGEM 2) --- */
+
+.feed-comunidade .card {
+    border: 1px solid #eee;
+    border-radius: 12px !important;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Permite alinhar itens verticalmente */
+    height: 100%;
+}
+
+/* Título Acima da Imagem */
+.feed-comunidade .card-header-title {
+    padding: 15px 10px;
+    text-align: center;
+}
+
+.feed-comunidade .card-title {
+    font-size: 1.1rem;
+    font-weight: 800 !important;
+    color: #333;
+    margin: 0;
+}
+
+/* Imagem Quadrada (Proporção 1:1) */
+.feed-comunidade .img-wrapper {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.feed-comunidade .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Corpo do Card e Botão Laranja */
+.feed-comunidade .card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.feed-comunidade .card-text {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+/* Botão Laranja Identico à Imagem 2 */
+.btn-laranja-afetivo {
+    background-color: #F47939 !important;
+    color: white !important;
+    font-weight: bold;
+    text-transform: none;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    transition: 0.3s;
+    border: none;
+}
+
+.btn-laranja-afetivo:hover {
+    background-color: #F15E66 !important; /* Muda para o seu Coral no hover */
+    transform: translateY(-2px);
+}
+
+/* Botão de Favorito Limpo e à Direita */
+.fav-btn {
+    position: absolute;
+    top: 10px;        /* Distância do topo da imagem */
+    right: 10px;      /* Move para a DIREITA */
+    background: rgba(255, 255, 255, 0.8) !important; /* Fundo branquinho suave */
+    border: none !important;        /* Remove a borda preta feia */
+    border-radius: 50% !important;  /* Deixa redondo */
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra leve para dar profundidade */
+    padding: 0;
+    outline: none;    /* Remove contorno ao clicar */
+}
+
+.fav-btn span {
+    color: #F47939;   /* Cor laranja no coração */
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.fav-btn:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+
+.acessibilidade {
+    position: fixed;
+    top: 200px;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 9999;
+}
+
+.acessibilidade button {
+    padding: 6px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #F47939 !important;
+    color: white !important;
+    border: none;
+}
+
+.sobre-projeto, .diferencial {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.sobre-projeto h2 {
+    color: #F47939;
+}
+
+.diferencial h3 {
+    color: #F47939;
+}
